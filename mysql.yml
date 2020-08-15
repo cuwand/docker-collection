@@ -1,0 +1,14 @@
+version: '3.1'
+
+services: 
+  db: 
+    image: mysql:5.7
+    container_name: dev_mysql
+    restart: always
+    ports: 
+      - 3306:3306
+    environment: 
+      MYSQL_ROOT_PASSWORD: mysql
+      # MYSQL_ROOT_HOST: "%"
+      MYSQL_USER: bacatulis
+      MYSQL_PASSWORD: tukangbacatulis
