@@ -1,9 +1,21 @@
-version: "3.5"
+version: "3.7"
 
 services:
   mongo:
     container_name: mongo
     image: mongo:4.2
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=local
+      - MONGO_INITDB_ROOT_PASSWORD=local_password
+    networks:
+      - local
     ports:
       - 27017:27017
+    volumes:
+      - ./mongodb:/data/db
     command: mongod
+
+networks:
+  local:
+    driver: bridge
+    name: local
